@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Her ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  color: #333;
+  text-align: center;
+}
+
+header { padding: 60px 20px; }
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+section { padding: 50px 20px; }
+
+/* 🎵 MUSIC PLAYER */
+.music-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.95);
+  padding: 14px 18px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+/* 🖼️ GALLERY */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 280px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .gallery { flex-wrap: wrap; }
+}
+
+/* CARDS */
+.card {
+  max-width: 700px;
+  margin: 20px auto;
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 22px;
+  font-size: 1.1rem;
+}
+
+/* GAME */
+.game {
+  max-width: 450px;
+  margin: auto;
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  border-radius: 25px;
+}
+
+button {
+  background: #ff5f7e;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover { background: #e94b68; }
+
+/* LETTER */
+.letter-box {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.95);
+  padding: 40px 30px;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  display: none;
+}
+
+footer {
+  padding: 30px;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="music/her.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-box">
+  🎶 <b>Her – JVKE</b><br>
+  <button onclick="toggleMusic()">Play / Pause</button>
+</div>
+
+<header>
+  <h1>Her ❤️</h1>
+  <p>The story of my heart, written for you</p>
+</header>
+
+<section>
+  <h2>Her Smile</h2>
+  <div class="gallery">
+    <img src="images/her1.jpg" alt="Her">
+    <img src="images/her2.jpg" alt="Her">
+    <img src="images/her3.jpg" alt="Her">
+  </div>
+</section>
+
+<section>
+  <h2>Little Notes</h2>
+  <div class="card">You are the calm in my chaos.</div>
+  <div class="card">Every future feels right with you in it.</div>
+</section>
+
+<section>
+  <h2>Mini Love Game 💖</h2>
+  <div class="game">
+    <p id="gameText">Tap to see how much I love you ❤️</p>
+    <button onclick="loveGame()">Tap Here</button>
+  </div>
+</section>
+
+<section>
+  <h2>Closer Letter 💌</h2>
+  <button onclick="openLetter()">Open My Heart</button>
+
+  <div id="letter" class="letter-box">
+    <h2>Moonjaren Huda 🌙</h2>
+    <p style="line-height:1.8;">
+      In every lifetime, in every version of me,<br>
+      I would still find you.<br><br>
+      Loving you feels like home — not because it’s easy,
+      but because it’s real.<br><br>
+      This isn’t a promise.<br>
+      It’s a choice.<br><br>
+      And I choose you. Always. ❤️
+    </p>
+  </div>
+</section>
+
+<footer>
+  Made with all my heart 💕<br>
+  — your Rowks
+</footer>
+
+<script>
+/* 🎵 MUSIC */
+const music = document.getElementById("bgMusic");
+function toggleMusic() {
+  if (music.paused) music.play();
+  else music.pause();
+}
+
+/* ❤️ LOVE GAME */
+const messages = [
+  "I love you more than words 💗",
+  "More than yesterday, less than tomorrow 💞",
+  "You are my miracle ✨",
+  "My heart chooses you ❤️",
+  "Infinity ♾️ and beyond"
+];
+
+function loveGame() {
+  const random = Math.floor(Math.random() * messages.length);
+  document.getElementById("gameText").innerText = messages[random];
+}
+
+/* 💌 LETTER */
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+</script>
+
+</body>
+</html>
