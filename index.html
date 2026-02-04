@@ -3,201 +3,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Her ❤️</title>
+<title>HER 👑 💌</title>
+
+<!-- Google Font for elegant header -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Georgia&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  color: #333;
-  text-align: center;
+:root {
+  --bg: #fff8f5;
+  --card: #fff1f3;
+  --accent: #f6a5c0;
+  --text: #2b2b2b;
+  --soft: #b85c74;
+  --shadow: rgba(0,0,0,0.08);
 }
 
-header { padding: 60px 20px; }
-
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+body{
+  margin:0;
+  font-family:Georgia,serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height:1.8;
 }
 
-section { padding: 50px 20px; }
-
-/* 🎵 MUSIC PLAYER */
-.music-box {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.95);
-  padding: 14px 18px;
-  border-radius: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  font-size: 0.9rem;
-  z-index: 1000;
+section{
+  padding:80px 20px;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
 }
 
-/* 🖼️ GALLERY */
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
+h1{
+  font-family: 'Dancing Script', cursive;
+  font-size:4rem;
+  color: var(--soft);
+  text-shadow: 2px 2px 6px rgba(246,165,192,0.5);
+  margin-bottom:10px;
+  animation: pulseShimmer 2s infinite alternate;
 }
 
-.gallery img {
-  width: 280px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+@keyframes pulseShimmer{
+  0%{
+    transform: scale(1);
+    text-shadow: 2px 2px 6px rgba(246,165,192,0.5);
+  }
+  50%{
+    transform: scale(1.08);
+    text-shadow: 3px 3px 8px rgba(246,165,192,0.7);
+  }
+  100%{
+    transform: scale(1);
+    text-shadow: 2px 2px 6px rgba(246,165,192,0.5);
+  }
 }
 
-@media (max-width: 768px) {
-  .gallery { flex-wrap: wrap; }
+h2{font-size:2rem;}
+.soft{color:var(--soft);}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.gallery img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 12px 30px var(--shadow);
 }
 
-/* CARDS */
-.card {
-  max-width: 700px;
-  margin: 20px auto;
-  background: rgba(255,255,255,0.9);
-  padding: 25px;
-  border-radius: 22px;
-  font-size: 1.1rem;
+.quote{
+  font-size:1.3rem;
+  margin:35px auto;
+  max-width:700px;
+  font-style:italic;
 }
 
-/* GAME */
-.game {
-  max-width: 450px;
-  margin: auto;
-  background: rgba(255,255,255,0.95);
-  padding: 30px;
-  border-radius: 25px;
+.letter{
+  background: var(--card);
+  padding:40px 30px;
+  border-radius:20px;
+  box-shadow:0 20px 40px var(--shadow);
+  max-width:700px;
+  margin:60px auto;
+  text-align:left;
 }
 
-button {
-  background: #ff5f7e;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  color: white;
-  font-size: 1rem;
+.heart{
+  font-size:2rem;
+  animation:beat 1.8s infinite;
+  color: var(--soft);
   cursor: pointer;
-  margin-top: 15px;
 }
 
-button:hover { background: #e94b68; }
-
-/* LETTER */
-.letter-box {
-  max-width: 700px;
-  margin: auto;
-  background: rgba(255,255,255,0.95);
-  padding: 40px 30px;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  display: none;
+@keyframes beat{
+  50%{transform:scale(1.15);}
 }
 
-footer {
-  padding: 30px;
-  font-size: 0.9rem;
+.fade-line{
+  opacity:0;
+  transform:translateY(12px);
+  transition:1.2s ease;
+}
+.fade-line.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+button{
+  background: var(--accent);
+  color:white;
+  border:none;
+  padding:14px 30px;
+  border-radius:30px;
+  font-size:1.05rem;
+  cursor:pointer;
+  box-shadow:0 12px 25px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px var(--soft);
+}
+
+#musicToggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background: var(--soft);
+  z-index:9999;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+}
+
+#musicName{
+  position:fixed;
+  bottom:65px;
+  right:20px;
+  font-size:.9rem;
+  color: var(--soft);
+  font-style:italic;
+}
+
+footer{
+  text-align:center;
+  padding:60px;
+  font-style:italic;
+  color:#555;
+}
+
+#game{
+  margin-top:40px;
+  position:relative;
+  height:120px;
+}
+
+#game .heart{
+  font-size:50px;
+  margin-top:10px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.3);}
+}
+
+/* floating hearts */
+.floatingHeart{
+  position:absolute;
+  font-size:24px;
+  color: var(--soft);
+  animation: floatUp 2s ease-out forwards;
+  pointer-events:none;
+  user-select:none;
+}
+
+@keyframes floatUp{
+  0%{opacity:1; transform: translateY(0) scale(1);}
+  100%{opacity:0; transform: translateY(-120px) scale(1.5);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 AUDIO -->
-<audio id="bgMusic" loop>
-  <source src="music/her.mp3" type="audio/mpeg">
+<!-- 🎵 Background Music -->
+<audio id="bgSong" loop preload="auto">
+  <source src="music/peace.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-box">
-  🎶 <b>Her – JVKE</b><br>
-  <button onclick="toggleMusic()">Play / Pause</button>
-</div>
+<div id="musicName">🎵 Now Playing: <b>HER</b></div>
+<button id="musicToggle">🔇 Music Off</button>
 
-<header>
-  <h1>Her ❤️</h1>
-  <p>The story of my heart, written for you</p>
-</header>
+<!-- Intro -->
+<section>
+  <h1>HER 👑</h1>
+  <p class="soft">Everything soft, everything true, everything me — loving you.</p>
+</section>
 
 <section>
-  <h2>Her Smile</h2>
+  <h2 class="soft">Moonjaren Huda</h2>
+  <p>My Bull — you exist the way poetry wishes it could.</p>
+</section>
+
+<section>
   <div class="gallery">
-    <img src="images/her1.jpg" alt="Her">
-    <img src="images/her2.jpg" alt="Her">
-    <img src="images/her3.jpg" alt="Her">
+    <img src="images/her1.jpg">
+    <img src="images/her2.jpg">
+    <img src="images/her3.jpg">
+    <img src="images/her4.jpg">
+    <img src="images/her5.jpg">
+    <img src="images/her6.jpg">
   </div>
 </section>
 
 <section>
-  <h2>Little Notes</h2>
-  <div class="card">You are the calm in my chaos.</div>
-  <div class="card">Every future feels right with you in it.</div>
+  <div class="quote">“Some connections don’t fade — they wait.”</div>
+  <div class="quote">“Love doesn’t always stay. Sometimes it promises.”</div>
+  <div class="quote">“Even distance cannot undo what was real.”</div>
 </section>
 
 <section>
-  <h2>Mini Love Game 💖</h2>
-  <div class="game">
-    <p id="gameText">Tap to see how much I love you ❤️</p>
-    <button onclick="loveGame()">Tap Here</button>
+  <div class="letter">
+    <p>My Bull,</p>
+    <p>
+      Loving you taught me that some feelings don’t need possession to be real.
+      They exist quietly, patiently, without demand.
+    </p>
+    <p>
+      I carry you with calm — not as a wound, but as truth.
+    </p>
+    <p>Always,<br><b>Rowks</b></p>
   </div>
 </section>
 
-<section>
-  <h2>Closer Letter 💌</h2>
-  <button onclick="openLetter()">Open My Heart</button>
+<!-- LOVE MINI GAME BEFORE FINAL LETTER -->
+<section id="game">
+  <p>Tap the heart when you miss me ❤️</p>
+  <div class="heart" id="heart">💖</div>
+  <p id="count">Love clicks: 0</p>
+</section>
 
-  <div id="letter" class="letter-box">
-    <h2>Moonjaren Huda 🌙</h2>
-    <p style="line-height:1.8;">
-      In every lifetime, in every version of me,<br>
-      I would still find you.<br><br>
-      Loving you feels like home — not because it’s easy,
-      but because it’s real.<br><br>
-      This isn’t a promise.<br>
-      It’s a choice.<br><br>
-      And I choose you. Always. ❤️
+<section>
+  <button id="openFinal">
+    Read this when your heart needs peace 🤍
+  </button>
+</section>
+
+<!-- FINAL MESSAGE -->
+<section id="finalSection" style="display:none;min-height:100vh;align-items:center;justify-content:center;">
+  <div style="background: var(--card); padding:50px;border-radius:25px;max-width:750px;text-align:center; box-shadow:0 20px 40px var(--shadow);">
+    <h2 class="soft fade-line">One Last Thing</h2>
+
+    <p class="fade-line">
+      It’s not foolishness. It’s faith.
+    </p>
+
+    <p class="fade-line">
+      Faith that maybe one day, in some quiet corner of time,
+      we will find our way back — not by effort, but by destiny.
+    </p>
+
+    <p class="fade-line">
+      Because hope, no matter how small, is still hope,
+      and sometimes that’s enough to keep a heart alive.
+    </p>
+
+    <p class="fade-line">
+      I will not regret. I will move on. Life goes on.
+    </p>
+
+    <p class="fade-line">
+      But remember — if life reaches a point where everything
+      tells you that you need me, and me only…
+    </p>
+
+    <p class="fade-line">
+      I am just a call away.
+    </p>
+
+    <p class="fade-line" style="margin-top:20px;">
+      <b>I love you, my Bull.</b>
     </p>
   </div>
 </section>
 
 <footer>
-  Made with all my heart 💕<br>
-  — your Rowks
+  — your Rowks will love you till his last breath
 </footer>
 
 <script>
-/* 🎵 MUSIC */
-const music = document.getElementById("bgMusic");
-function toggleMusic() {
-  if (music.paused) music.play();
-  else music.pause();
-}
+// Music control
+const bgSong=document.getElementById("bgSong");
+const toggle=document.getElementById("musicToggle");
+let musicOn=false;
+toggle.onclick=()=>{
+  if(musicOn){
+    bgSong.pause();
+    toggle.textContent="🔇 Music Off";
+  }else{
+    bgSong.play().catch(()=>{});
+    toggle.textContent="🔊 Music On";
+  }
+  musicOn=!musicOn;
+};
 
-/* ❤️ LOVE GAME */
-const messages = [
-  "I love you more than words 💗",
-  "More than yesterday, less than tomorrow 💞",
-  "You are my miracle ✨",
-  "My heart chooses you ❤️",
-  "Infinity ♾️ and beyond"
-];
+// Open final message
+document.getElementById("openFinal").onclick=function(){
+  const final=document.getElementById("finalSection");
+  final.style.display="flex";
+  final.scrollIntoView({behavior:"smooth"});
+  this.style.display="none";
+  bgSong.play().catch(()=>{});
+  toggle.textContent="🔊 Music On";
+  musicOn=true;
 
-function loveGame() {
-  const random = Math.floor(Math.random() * messages.length);
-  document.getElementById("gameText").innerText = messages[random];
-}
+  final.querySelectorAll(".fade-line").forEach((el,i)=>{
+    setTimeout(()=>el.classList.add("show"),i*1200);
+  });
+};
 
-/* 💌 LETTER */
-function openLetter() {
-  document.getElementById("letter").style.display = "block";
-}
+// Love mini game with floating hearts
+let clicks = 0;
+const gameHeart = document.getElementById("heart");
+const countText = document.getElementById("count");
+
+gameHeart.onclick = (e)=>{
+  clicks++;
+  countText.innerText = "Love clicks: " + clicks;
+
+  const floating = document.createElement("div");
+  floating.className = "floatingHeart";
+  floating.innerText = "💖";
+
+  // Random horizontal position
+  floating.style.left = (e.clientX - 10) + "px";
+  floating.style.top = (e.clientY - 30) + "px";
+
+  document.body.appendChild(floating);
+
+  // Remove after animation
+  setTimeout(()=>floating.remove(),2000);
+};
 </script>
 
 </body>
